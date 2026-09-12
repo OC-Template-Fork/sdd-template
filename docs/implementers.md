@@ -12,7 +12,7 @@
 
 Your architecture consists of:
 
-1. **Role-specific agents** (Strategy, Execution, Observability, Collaboration, Review)
+1. **Capability-specific agents** (Strategy, Execution, Observability, Collaboration, Review)
 2. **Core skills** (spec_query, audit_log, and others)
 3. **Event-driven orchestration** (agents listen for signals, publish decisions)
 4. **Audit trail** (every decision is logged for review and improvement)

@@ -46,7 +46,7 @@ Execute these file system changes without adding domain meaning yet:
 
 1. **Delete template-only artifacts**
    - Delete `docs/template-usage/` directory
-   - Keep `.fork-guide/` until the transition is complete; its templates and validator are used in later phases
+   - Keep `.fork-guide/` until Phase 5 is complete; its templates and validator are used in later phases
    - Delete `specs/templates/` directory (optional; can keep as reference)
 
 2. **Rename domain specs folder**
@@ -131,6 +131,24 @@ If Q4 = "Both (specs + agent code)":
    - List required domain-specific skills (e.g., market_data_fetcher, trade_executor, position_tracker)
    - Create stub Python modules for each skill
 
+### Phase 5: Final Cleanup
+
+Perform this phase only after the domain-specific files are complete, the human has reviewed the fork's meaning, and the spec validator has passed.
+
+1. **Remove transition-only references**
+   - Update `README.md` and other retained documentation so they no longer link to `.fork-guide/` or describe the repository as an unconverted template.
+   - Preserve links to any reusable documentation or infrastructure that remains in the fork.
+
+2. **Archive the fork guide**
+   - Create the hidden `.archive/` directory if it does not exist.
+   - Move the `.fork-guide/` directory and all of its contents to `.archive/fork-guide/`.
+   - Treat `.archive/fork-guide/` as historical transition tooling, not as part of the active domain-specific fork.
+
+3. **Verify the completed fork**
+   - Confirm that `.fork-guide/` no longer exists and `.archive/fork-guide/` exists.
+   - Search retained files for broken `.fork-guide/` references and remove or repair any that remain.
+   - Report the archive location and any remaining human review items in the transition summary.
+
 ---
 
 ## What to Output
@@ -162,7 +180,7 @@ Provide the human with:
 - ✅ Created `docs/trader.md`, `docs/risk-manager.md`, `docs/analyst.md` (non-opinionated templates)
 - ✅ Generated `IMPLEMENTATION.md` with sections for agent setup, data feeds, dashboards
 - ✅ Updated `README.md` with day-trading-specific intro
-- ✅ Marked `docs/template-usage/`, `.fork-guide/`, and `specs/templates/` for deletion during final cleanup
+- ✅ Archived `.fork-guide/` under `.archive/fork-guide/` during final cleanup
 - ✅ Created `skills/domain/` stub with skill categories (market_data, order_execution, etc.)
 
 ### Next Steps for Human
@@ -180,3 +198,4 @@ Provide the human with:
 - **Agent implementations** are separate from specs; agents read and interpret specs
 - **Skills are reusable** — core skills in `skills/core/` apply across domains; domain skills go in `skills/domain/`
 - **Validation is key** — run spec-validator.py before considering specs "done"
+- **Final cleanup is explicit** — after human review and successful validation, complete Phase 5 to archive `.fork-guide/` under `.archive/fork-guide/` and remove its active references

@@ -35,7 +35,7 @@ This template defines a framework for executing, monitoring, and optimizing ongo
 **Purpose**: Interpret specifications contextually and make decisions.
 
 **Components**:
-- **Role-specific agents**: Interpret and act on specs for different features (Strategy, Execution, Observability, Collaboration, Review)
+- **Capability-specific agents**: Interpret and act on specs for the five operational capabilities (Strategy, Execution, Observability, Collaboration, Review)
 - **Pre-defined skills**: Reusable patterns across domains (e.g., pattern recognition, decision evaluation, analysis, reporting)
 - **Agent coordination**: Mechanisms for agents to communicate and sequence their actions
 
